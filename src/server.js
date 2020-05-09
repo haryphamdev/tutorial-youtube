@@ -10,12 +10,12 @@ let app = express();
 
 app.use(cookieParser('secret'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 configViewEngine(app);
 
 initWebRoutes(app);
 initAPIRoutes(app);
 
-let port = process.env.PORT;
-app.listen(port || 8080, () => console.log(`Doctor Appointment Booking System app is listening on port ${port}!`));
+let port = process.env.PORT || 8080;
+app.listen(port, () => console.log(`Doctor Appointment Booking System app is listening on port ${port}!`));
